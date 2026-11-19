@@ -1,0 +1,163 @@
+/* ==========================================================
+   PART 1: Comentaris i Reset Universal
+   ========================================================== */
+
+/* 1. Selector universal per establir box-sizing: border-box */
+* {
+    box-sizing: border-box;
+}
+
+/* 2. Configura l'herència base al body */
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #1e293b;
+    background-color: #f8fafc;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==========================================================
+   PART 2: Comprovació de la Cascada
+   ========================================================== */
+
+/* 1. Regla per a caixa-avis al fitxer extern */
+.caixa-avis {
+    background-color: #dbeafe;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+
+/* ==========================================================
+   PART 3: Propietat display i model de caixes
+   ========================================================== */
+
+/* 1. Capçalera (#capcalera) */
+#capcalera {
+    text-align: center;
+    color: #ffffff;
+    background-color: #0f172a;
+    padding: 20px;
+}
+
+/* 2. Menú horitzontal sense Flexbox (.menu li) */
+.menu li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* 3. Contenidor principal (#contingut) */
+#contingut {
+    width: 85%;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+/* 4. Targetes (.fitxa) */
+.fitxa {
+    background-color: #ffffff;
+    border: 2px solid #cbd5e1;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* 5. Element en línia amb propietats de caixa (.etiqueta-inline) */
+.etiqueta-inline {
+    display: inline-block;
+    background-color: #e2e8f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+
+/* ==========================================================
+   PART 4: Selectors Combinadors
+   ========================================================== */
+
+/* 1. Descendent (nav a) */
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 8px 12px;
+}
+
+/* 2. Fill directe (#contingut > section) */
+#contingut > section {
+    background-color: #ffffff;
+    padding: 25px;
+}
+
+/* 3. Germà adjacent (h2 + p) */
+h2 + p {
+    font-weight: bold;
+    color: #0284c7;
+}
+
+/* 4. Germans generals (h2 ~ p) */
+h2 ~ p {
+    font-size: 1.05rem;
+}
+
+
+/* ==========================================================
+   PART 5: Selectors d'Atributs
+   ========================================================== */
+
+/* 1. Enllaços que s'obren en pestanya nova (target="_blank") */
+a[target="_blank"] {
+    color: #15803d;
+    font-weight: bold;
+}
+
+/* 2. Enllaços que apuntan a un fitxer PDF (href finalitzat en .pdf) */
+a[href$=".pdf"] {
+    color: #b91c1c;
+}
+
+
+/* ==========================================================
+   PART 6: Pseudo-classes i Pseudo-elements
+   ========================================================== */
+
+/* 1. Pseudo-classes d'interacció (.menu a:hover) */
+.menu a:hover {
+    background-color: #334155;
+    border-radius: 4px;
+}
+
+/* 2. Pseudo-classe estructural (última targeta) */
+.fitxa:last-of-type {
+    margin-bottom: 0;
+    border-left: 6px solid #0284c7;
+}
+
+/* 3. Pseudo-elements */
+.fitxa h3::before {
+    content: "▶ ";
+    color: #0284c7;
+}
+
+a[href$=".pdf"]::after {
+    content: " [PDF]";
+}
+
+.intro::first-letter {
+    font-size: 1.5rem;
+    color: #0284c7;
+}
+
+
+/* ==========================================================
+   PREGUNTA DE REFLEXIÓ (Part 2.2)
+   ==========================================================
+   Quin color de fons mostra el navegador per a .caixa-avis i per què?
+   El navegador aplica la regla segons l'especificitat i l'ordre de la cascada
+   (si hi ha un estil inline o una etiqueta <style> interna, tenen prioritat
+   sobre el fitxer extern .css; si no, es mostra el blau clar #dbeafe).
+
+   Què passaria si afegissis !important al fitxer extern?
+   Si poses !important a la propietat del fitxer extern, forçarà que s'apliqui
+   aquest color per sobre de regles normals o d'etiquetes <style> internes
+   (només seria superat per un estil inline que també tingués !important).
+   ========================================================== */
